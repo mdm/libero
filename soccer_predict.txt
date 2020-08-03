@@ -1,0 +1,122 @@
+main pages:
+* landing page for users who are not signed in
+* predictions
+* rankings
+* pools
+* settings
+
+landing page
+* list features
+* create account or sign in with facebook/google (automatically link accounts with same email?)
+
+predictions
+* per pool
+* upcoming matches (within next 24 hours) on top
+* matches sorted by group/stage below
+* bonus predictions available before tournament start: cup winner, runner-up
+* bonus predictions available before first game of group: group winner, runner-up
+
+rankings
+* show list of pools as drop-down list (only if user is in more than one pool)
+* remember last viewed pool
+* default to global pool
+
+pools
+* join pools
+* create new pools
+* view and share access code for pools
+* remove users from pools
+* owner can only be removed by deleting pool
+
+settings
+* change display name
+* change timezone
+* connect other logins
+* delete account
+
+
+models:
+* user
+* identity (how to avoid STI?)
+* team
+* match
+* venue
+* match_prediction
+* winner_prediction
+* pool
+* pool/user
+(* timezone)
+(* ui language)
+
+user
+* id
+* timezone
+* ui language
+* admin
+
+identity
+* user id
+* credentials
+
+team
+* id
+* country
+* code
+* group
+* pos
+* wins
+* draws
+* losses
+* goals for
+* goals against
+* points
+
+match
+* id
+* home team
+* away team
+* venue
+* kickoff
+* goals home team
+* goals away team
+* version (bool -> result final?)
+
+venue
+* id
+* name
+* city
+* capacity
+
+match_prediction
+* id
+* user id
+* pool_id
+* match id
+* goals home team
+* goals away team
+
+winner_prediction
+* id
+* user id
+* pool_id
+* team
+* champions
+
+pool
+* id
+* name
+* access code
+
+pool/user (used for display name and membership)
+* id
+* user id
+* pool id
+* display name (default = global pool name ???)
+* moderator
+
+---------------
+* qr codes for access
+* pick group and tournament winners
+* team/venue descriptions?
+* 1-3 stars for: correct winner, correct goal difference, correct score (how many point for each case?)
+

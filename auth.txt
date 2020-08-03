@@ -1,0 +1,70 @@
+Make "remember me" optional?
+
+endpoints:
+GET /auth (check logged in status)
+POST /auth/identity (log in)
+
+GET /account (get profile)
+PATCH /account (change profile)
+DELETE /account (delete account)
+
+GET /account/logins
+POST /account/logins/identity (create new account or link login to account)
+DELETE /account/logins/identity (unlink login)
+
+create account first and patch profile later
+
+In login guard:
+* Check if user has valid JWT token (GET /auth):
+** Yes: auto-login the user
+** No:
+*** Put intended URL in store
+*** Follow flow chart (give consent before account creation)
+
+When API request fails because of expired JWT token
+* "You have been logged out due to inactivity"
+* Put current URL in store
+* Present login screen (offer link to registration, offer link to both on home page)
+* Get JWT token by POSTing to /auth/password or /auth/google
+
+How to link specific Google/Facebook/Twitter accounts?
+How to handle refresh? -> Use refresh token with sequence number! DON'T log it!
+How to invalidate existing tokens after password change? -> Refresh token sequence number
+How to handle logout -> remove cookies & use tab events
+
+Store in user profile:
+* Email address
+* Password hash
+* Refresh token sequence number (increase on password change)
+* Admin flag
+* Default display name
+* Language
+* Timezone
+
+What about profiles for "scripts"?
+
+Store in JWT:
+* User ID
+* Expiration date
+
+Joken vs Guardian in backend? or use POW?
+
+Accept JWTs in Cookies for "user" and "admin" roles and in Authorization headers only for a special "script" role (require access key for each "script" request?)
+Make "scripts" call backend directly instead of using API?
+
+https://medium.com/@whuysentruit/securing-your-single-page-application-anno-2019-754bc4c29119
+https://medium.com/lightrail/getting-token-authentication-right-in-a-stateless-single-page-application-57d0c6474e3
+https://stackoverflow.com/questions/2392100/how-to-prevent-csrf-in-a-restful-application
+https://www.redotheweb.com/2015/11/09/api-security.html
+
+https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage
+https://www.theguild.nl/where-to-put-json-web-tokens-in-2019/
+
+https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_Cheat_Sheet_for_Java.html
+https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+
+https://www.smashingmagazine.com/2017/11/safe-password-resets-with-json-web-tokens/
+https://supertokens.io/blog/the-best-way-to-securely-manage-user-sessions
+https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/
+https://auth0.com/learn/refresh-tokens/
+

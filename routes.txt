@@ -1,0 +1,28 @@
+index (redirect to pools/index or pools/join if logged in)
+pools/index (last used, owned and joined)
+pools/create
+pools/delete
+pools/manage (remove users, appoint moderators, show invite link)
+pools/join
+pools/leave
+pools/pool_id/predictions/index (show predictions for active pool)
+pools/pool_id/predictions/match/match_id
+pools/pool_id/predictions/bonus/bonus_id ("group_a" to "group_h" and "tournament")
+pools/pool_id/leaderboards
+settings
+admin/stats
+admin/teams
+admin/venues
+admin/matches
+admin/users (ban users, appoint admins)
+
+routes for crud? or inline?
+
+groups instead of teams as routes:
+* index
+* add-group
+* id/add-team
+* id/remove-team
+* id/set-winner (how do we set the tournament winner and runner up? => using the special group all)
+* id/remove-group
+

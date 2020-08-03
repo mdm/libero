@@ -1,0 +1,64 @@
+====== MVC Architecture ======
+===== Models =====
+  * User
+  * BonusPrediction
+  * Group
+  * Match
+  * Prediction
+  * Qualification
+  * Ranking
+  * Team
+  * Venue
+
+===== Controllers/Actions =====
+
+
+====== CakePHP ======
+  * Team hasMany BonusPrediction
+
+
+====== Templates ======
+  * http://stackoverflow.com/questions/62617/whats-the-best-way-to-separate-php-code-and-html
+
+====== Security ======
+  * http://phpsec.org/projects/guide/4.html
+  * http://www.devarticles.com/c/a/MySQL/Security-and-Sessions-in-PHP/
+  * http://stackoverflow.com/questions/328/php-session-security
+  * http://carsonified.com/blog/dev/how-to-create-bulletproof-sessions/
+  * http://phpsec.org/projects/guide/4.html
+  * http://www.codinghorror.com/blog/2008/08/protecting-your-cookies-httponly.html
+  * http://stackoverflow.com/questions/1858448/what-should-i-store-in-cookies-to-implement-remember-me-during-user-login
+  * http://jaspan.com/improved_persistent_login_cookie_best_practice
+  * http://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
+  * http://blog.themeforest.net/tutorials/working-with-sessions-and-cookies-in-php-and-mysql/
+  * http://htmlpurifier.org/
+  * http://michelf.com/projects/php-markdown/
+  * check for empty table prefix (forms would enable attacker to guess table names)
+
+====== Todo ======
+  * Controller access
+  * Sessions & Auto-sessions
+
+  * Check if action exists
+  * Form Builder
+  * Database Validators
+  * Modular actions (e.g. check code, register)
+  * Better error msgs for validators
+  * Use string utils via dependency injection
+  * Track dirty values for updating
+
+====== Logic ======
+
+  * Only count referrals that have paid
+
+
+====== Interface ======
+
+  * http://www.alistapart.com/articles/makingcompactformsmoreaccessible
+
+Array ( [0] => -2 [1] => 1 [2] => 59 [3] => 1 [4] => 59 [5] => -32 [6] => -2 [7] => -32 ) 
+
+====== Facebook ======
+  * Application ID: 120996801248442
+  * API Key: b0a4d3245626802fcf7f27dc22551451
+  * Secret 144129081d25cd4b2638899915f6cae3
