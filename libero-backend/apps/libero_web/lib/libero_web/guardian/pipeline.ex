@@ -2,8 +2,9 @@ defmodule AuthMe.UserManager.Pipeline do
   use Guardian.Plug.Pipeline,
     otp_app: :libero_web,
     error_handler: LiberoWeb.Guardian.ErrorHandler,
-    module: LiberoWeb.Guardian.Callbacks
+    module: LiberoWeb.Guardian.Implementation
 
+  plug :fetch_session
   # If there is a session token, restrict it to an access token and validate it
   plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
   # If there is an authorization header, restrict it to an access token and validate it

@@ -23,7 +23,7 @@ token_secret_key =
     You can generate one by calling: mix guardian.gen.secret
     """
 
-config :libero_web, LiberoWeb.Guardian.Callbacks,
+config :libero_web, LiberoWeb.Guardian.Implementation,
   issuer: "libero",
   secret_key: token_secret_key
 

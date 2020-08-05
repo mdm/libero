@@ -9,7 +9,7 @@ config :libero, Libero.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
-config :libero_web, LiberoWeb.Guardian.Callbacks,
+config :libero_web, LiberoWeb.Guardian.Implementation,
   issuer: "libero",
   secret_key: "secret"
 

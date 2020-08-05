@@ -8,7 +8,7 @@ config :libero, Libero.Repo,
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
-config :libero_web, LiberoWeb.Guardian.Callbacks,
+config :libero_web, LiberoWeb.Guardian.Implementation,
   issuer: "libero",
   secret_key: "secret"
 
