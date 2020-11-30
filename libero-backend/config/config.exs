@@ -22,7 +22,7 @@ config :libero_web, LiberoWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "ONtyWHFVrz0mG7uwAIJFlyr2hPL/Cl3m0fu5BcjJgYwSdTLxpiOIneWZS53u3g+T",
   render_errors: [view: LiberoWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: LiberoWeb.PubSub, adapter: Phoenix.PubSub.PG2],
+  pubsub_server: LiberoWeb.PubSub,
   live_view: [signing_salt: "ZVqjd/AH"]
 
 # Configures Elixir's Logger

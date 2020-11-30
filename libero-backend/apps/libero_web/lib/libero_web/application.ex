@@ -8,6 +8,8 @@ defmodule LiberoWeb.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      # Start the PubSub system
+      {Phoenix.PubSub, name: LiberoWeb.PubSub},
       # Start the endpoint when the application starts
       LiberoWeb.Endpoint
       # Starts a worker by calling: LiberoWeb.Worker.start_link(arg)
