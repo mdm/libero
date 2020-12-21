@@ -16,7 +16,16 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "Home",
     component: HomeView,
-    meta: { public: true }
+    meta: { public: true },
+    beforeEnter: async (to, from, next) => {
+      if (await auth.check()) {
+        next({
+          path: "/app"
+        });
+      } else {
+        next();
+      }
+    }
   },
   {
     path: "/login",
@@ -73,7 +82,7 @@ router.beforeEach(async (to, from, next) => {
     if (!(await auth.check())) {
       // TODO: store intended target URL
       next({
-        path: "/login"
+        path: "/register"
       });
     } else {
       next();
