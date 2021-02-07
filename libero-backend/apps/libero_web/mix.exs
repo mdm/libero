@@ -44,7 +44,11 @@ defmodule LiberoWeb.MixProject do
       {:libero, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:guardian, "~> 2.1"},
+      {:ueberauth, "~> 0.6"},
+      {:ueberauth_identity, "~> 0.3"},
+      {:ueberauth_google, "~> 0.10"}
     ]
   end
 
