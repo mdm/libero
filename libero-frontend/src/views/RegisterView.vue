@@ -34,7 +34,7 @@
           autocomplete="new-password"
           v-model="password"
         />
-        <PasswordStrengthIndicator :password="password"/>
+        <PasswordStrengthIndicator class="input" v-if="password" :password="password"/>
         <input type="submit" value="Register" />
       </form>
       <p>
@@ -56,16 +56,14 @@ export default Vue.extend({
   data: function() {
     return {
       email: null,
-      password: null,
-      passwordConfirmation: null
+      password: null
     };
   },
   methods: {
     register: function() {
       console.log({
         email: this.email,
-        password: this.password,
-        passwordConfirmation: this.passwordConfirmation
+        password: this.password
       });
     }
   },
