@@ -29,7 +29,21 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.zero {
+.bars {
+  display: flex;
+
+  div {
+    border: 1px solid grey;
+    background-color: white;
+    margin: 2px;
+  }
+
+  div:first-child, div:last-child {
+    margin: 2px 0;
+  }
+}
+
+.very-weak {
     &.bars {
         .first {
             background-color: grey;

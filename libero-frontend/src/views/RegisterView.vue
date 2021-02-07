@@ -34,7 +34,7 @@
           autocomplete="new-password"
           v-model="password"
         />
-        <PasswordStrengthIndicator/>
+        <PasswordStrengthIndicator :password="password"/>
         <input type="submit" value="Register" />
       </form>
       <p>
