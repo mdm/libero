@@ -68,3 +68,15 @@ https://supertokens.io/blog/the-best-way-to-securely-manage-user-sessions
 https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/
 https://auth0.com/learn/refresh-tokens/
 
+
+11/2020
+-------
+* try to use ueberauth and redirect on oauth callback
+
+https://github.com/ueberauth/ueberauth_example
+https://elixirforum.com/t/ueberauth-and-how-to-authorize-single-page-apps/3612/2
+https://thoughtbot.com/blog/authentication-in-elixir-web-applications-with-guardian-part-1
+https://alchemist.camp/episodes/ueberauth-oauth2-phoenix
+http://blog.nathansplace.co.uk/2018/ueberauth-and-guardian
+https://elixirforum.com/t/ueberauth-identity-strategy-for-a-pure-json-api-how-to-implement-the-request-phase/12275
+
