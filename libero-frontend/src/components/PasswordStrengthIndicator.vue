@@ -91,6 +91,7 @@ $great: green;
 
   span {
     font-size: 0.5rem;
+    color: grey;
   }
 }
 

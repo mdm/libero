@@ -54,7 +54,7 @@ export default Vue.extend({
       if (event.target == this.$refs.input) {
         this.active = true;
       } else {
-        this.active = (this.$refs.input as HTMLInputElement).value.length > 0;  
+        this.active = (this.$refs.input as HTMLInputElement).value.length > 0;
       }
       this.focused = true;
     },
@@ -107,6 +107,10 @@ label {
       &:focus {
         outline: none;
       }
+
+      // &:invalid {
+      //   background-color: magenta;
+      // }
     }
   }
 
@@ -115,7 +119,7 @@ label {
     height: 100%;
     border: none;
     align-self: center;
-    background-color: white;    
+    background-color: white;
 
     &:focus {
       outline: 1px solid variables.$accent;

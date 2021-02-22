@@ -26,15 +26,24 @@
         <TextInput
           class="input"
           label="Email address"
+          type="email"
           v-model="email"
         />
+        <p class="error">
+          <span v-if="errors.email.invalid">Please enter a valid email address.</span>
+          <span v-if="errors.email.taken">An account with this email address already exists. Do you want to <router-link to="/login">log in</router-link>?</span>
+        </p>
         <PasswordInput
           class="input"
           label="Password"
           autocomplete="new-password"
-          v-model="password"
+          :password="password"
+          @input="passwordInput"
         />
-        <PasswordStrengthIndicator class="input" v-if="password" :password="password"/>
+        <p class="error">
+          <PasswordStrengthIndicator class="input" v-if="password" :password="password"/>
+          <span v-if="errors.password.empty">Please choose a password.</span>
+        </p>
         <input type="submit" value="Register" />
       </form>
       <p>
@@ -55,11 +64,24 @@ import PasswordStrengthIndicator from "@/components/PasswordStrengthIndicator.vu
 export default Vue.extend({
   data: function() {
     return {
-      email: null,
-      password: null
+      email: "",
+      password: "",
+      errors: {
+        email: {
+          invalid: false,
+          taken: true
+        },
+        password: {
+          empty: false
+        }
+      }
     };
   },
   methods: {
+    passwordInput: function(value: string) {
+      this.password = value;
+      this.errors.password.empty = !this.password;
+    },
     register: function() {
       console.log({
         email: this.email,
@@ -122,6 +144,12 @@ export default Vue.extend({
 
   input {
     width: 20rem;
+  }
+
+  .error {
+    height: 1rem;
+    font-size: 0.6rem;
+    color: variables.$error;
   }
 }
 </style>
