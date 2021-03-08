@@ -74,7 +74,7 @@ label {
   display: flex;
   align-items: flex-end;
   width: 100%;
-  height: 2rem;
+  height: 2.5rem;
   border: 1px solid grey;
   border-radius: 3px;
   padding: 2px 0.3rem;
@@ -108,9 +108,11 @@ label {
         outline: none;
       }
 
-      // &:invalid {
-      //   background-color: magenta;
-      // }
+      &:invalid {
+        outline: none;
+        border: none;
+        box-shadow: none;
+      }
     }
   }
 

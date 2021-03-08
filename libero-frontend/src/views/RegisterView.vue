@@ -37,14 +37,14 @@
           class="input"
           label="Password"
           autocomplete="new-password"
-          :password="password"
+          :value="password"
           @input="passwordInput"
         />
         <p class="error">
           <PasswordStrengthIndicator class="input" v-if="password" :password="password"/>
           <span v-if="errors.password.empty">Please choose a password.</span>
         </p>
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register" @click="preSubmit"/>
       </form>
       <p>
         Already have an account? Click
@@ -81,6 +81,9 @@ export default Vue.extend({
     passwordInput: function(value: string) {
       this.password = value;
       this.errors.password.empty = !this.password;
+    },
+    preSubmit: function() {
+      console.log('submitted');
     },
     register: function() {
       console.log({
