@@ -5,7 +5,7 @@
         <div class="label">
           <span>{{ label }}</span>
         </div>
-        <input ref="input" :type="type" :value="value" :autocomplete="autocomplete" @input="input" @focus="focus" @blur="blur" />
+        <input ref="input" :type="type" :value="value" :required="required" :autocomplete="autocomplete" @input="input" @focus="focus" @blur="blur" @invalid.prevent="invalid" />
       </div>
       <button v-if="actionIcon" @click="action" @focus="focus" @blur="blur" type="button">
         <fa-icon :icon="actionIcon" />
@@ -30,6 +30,10 @@ export default Vue.extend({
     type: {
       type: String,
       default: "text"
+    },
+    required: {
+      type: Boolean,
+      default: false
     },
     autocomplete: {
       type: String,
@@ -61,6 +65,11 @@ export default Vue.extend({
     blur: function() {
       this.active = (this.$refs.input as HTMLInputElement).value.length > 0;
       this.focused = false;
+    },
+    invalid: function() {
+      console.log(this.required);
+      console.log((this.$refs.input as HTMLInputElement).validity);
+      this.$emit("invalid");
     },
     action: function() {
       this.$emit("action");

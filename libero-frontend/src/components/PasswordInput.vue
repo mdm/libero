@@ -3,9 +3,11 @@
         :label="label"
         :value="value"
         :type="show ? 'text' : 'password'"
+        :required="required"
         :autocomplete="autocomplete"
         :actionIcon="show ? ['far', 'eye-slash'] : ['far', 'eye']"
         @input="input"
+        @invalid="invalid"
         @action="toggleShow"
     />
 </template>
@@ -24,6 +26,10 @@ export default Vue.extend({
       type: String,
       default: ""
     },
+    required: {
+      type: Boolean,
+      default: false
+    },
     autocomplete: {
       type: String,
       default: ""
@@ -37,6 +43,9 @@ export default Vue.extend({
   methods: {
     input: function(value: string) {
       this.$emit("input", value);
+    },
+    invalid: function(validity: ValidityState) {
+      this.$emit("invalid", validity);
     },
     toggleShow: function() {
       this.show = !this.show;

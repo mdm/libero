@@ -27,24 +27,27 @@
           class="input"
           label="Email address"
           type="email"
+          required
           v-model="email"
+          @invalid="invalidEmail"
         />
         <p class="error">
-          <span v-if="errors.email.invalid">Please enter a valid email address.</span>
-          <span v-if="errors.email.taken">An account with this email address already exists. Do you want to <router-link to="/login">log in</router-link>?</span>
+          <span v-if="errors.email">Please enter a valid email address.</span>
         </p>
         <PasswordInput
           class="input"
           label="Password"
+          required
           autocomplete="new-password"
-          :value="password"
-          @input="passwordInput"
+          v-model="password"
+          @invalid="invalidPassword"
         />
         <p class="error">
+          <!-- TODO: reserve space for strength indicator to avoid jumping -->
           <PasswordStrengthIndicator class="input" v-if="password" :password="password"/>
-          <span v-if="errors.password.empty">Please choose a password.</span>
+          <span v-if="errors.password">Please choose a password.</span>
         </p>
-        <input type="submit" value="Register" @click="preSubmit"/>
+        <input type="submit" value="Register"/>
       </form>
       <p>
         Already have an account? Click
@@ -67,23 +70,20 @@ export default Vue.extend({
       email: "",
       password: "",
       errors: {
-        email: {
-          invalid: false,
-          taken: true
-        },
-        password: {
-          empty: false
-        }
+        email: false,
+        password: false
       }
     };
   },
   methods: {
-    passwordInput: function(value: string) {
+    updatePassword: function(value: string) {
       this.password = value;
-      this.errors.password.empty = !this.password;
     },
-    preSubmit: function() {
-      console.log('submitted');
+    invalidEmail: function() {
+      this.errors.email = true;
+    },
+    invalidPassword: function() {
+      this.errors.password = true;
     },
     register: function() {
       console.log({
